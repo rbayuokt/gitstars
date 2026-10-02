@@ -1,0 +1,26 @@
+{
+  "name": "gitstars",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Dynamic GitHub README badge showing total stars across a user's public, non-fork repositories.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test test/*.test.ts"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^5.20261002.1",
+    "typescript": "^7.0.2",
+    "wrangler": "^4.147.0"
+  },
+  "cloudflare": {
+    "bindings": {
+      "GITHUB_TOKEN": {
+        "description": "Optional. A [fine-grained GitHub token](https://github.com/settings/personal-access-tokens/new) with no extra permissions. Raises the GitHub API limit from 60 to 5,000 requests per hour."
+      }
+    }
+  }
+}
